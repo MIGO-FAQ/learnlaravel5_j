@@ -85,7 +85,6 @@ class PagesController extends Controller {
             return Redirect::back()->withInput()->withErrors('保存失败！');
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *

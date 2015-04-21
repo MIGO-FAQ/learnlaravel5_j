@@ -31,3 +31,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     //Route::resource('/','AdminHomeController');
     Route::resource('pages', 'PagesController');
 });
+
+Route::get('hello','HelloController@hello');
+Route::get('api','HelloController@api');
+Route::get('api/{id}','HelloController@show');
