@@ -43,6 +43,7 @@ class PagesController extends Controller {
             return Redirect::to('admin');
         } else {
             return Redirect::back()->withInput()->withErrors('保存失败！');
+
         }
 
     }

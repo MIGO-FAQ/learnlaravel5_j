@@ -33,5 +33,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 });
 
 Route::get('hello','HelloController@hello');
-Route::get('api','HelloController@api');
-Route::get('api/{id}','HelloController@show');
+Route::get('hellofaq','HelloController@hello_faq');
+Route::group(['prefix' => 'api'],function()
+{
+    Route::get('pages','ApiController@index');
+});
+Route::get('mypages','HelloController@index');
+Route::get('mypages/create','HelloController@create');
+Route::post('mypages','HelloController@store');
+Route::get('mypages/{id}','HelloController@show');
