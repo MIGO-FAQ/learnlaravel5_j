@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Page;
 
-use Laracasts\Flash\Flash;
+use Flash;
 use Redirect, Input, Auth;
 
 class PagesController extends Controller {

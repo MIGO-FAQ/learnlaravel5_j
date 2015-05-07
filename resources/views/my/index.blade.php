@@ -1,14 +1,12 @@
 @extends('app')
 
 @section('content')
-    <div id="title" style="text-align: center;">
-        <h1>Page</h1>
-    </div>
+    <h1>Page</h1>
     @foreach($pages as $page)
-        <div id="title" style="text-align: center;">
-            <h2><a href="{{ url('/mypages', $page->id ) }}">{{ $page->title }}</a></h2>
-        </div>
-        <div class="body" style="text-align: center;">{{ $page->body }}</div>
+
+        <h2><a href="{{ url('/mypages', $page->id ) }}">{{ $page->title }}</a></h2>
+
+        {{ $page->body }}
 
     @endforeach
 @stop

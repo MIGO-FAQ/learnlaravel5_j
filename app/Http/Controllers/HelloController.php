@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateMyPagesRequest;
 use Request;
 
 
@@ -52,9 +53,15 @@ class HelloController extends Controller
     {
         return view('my.create');
     }
-    public function store()
+
+
+    /**
+     * @param CreateMyPagesRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function store(CreateMyPagesRequest $request)
     {
-        $input = Request::all();
+        $input = $request->all();
         //$input = Request::get('title');
 
         Page::create($input);
