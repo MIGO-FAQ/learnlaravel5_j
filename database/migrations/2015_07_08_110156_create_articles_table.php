@@ -3,7 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTagToArticlesTables extends Migration {
+class CreateArticlesTable extends Migration
+{
 
 	/**
 	 * Run the migrations.
@@ -12,9 +13,12 @@ class AddTagToArticlesTables extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('articles', function(Blueprint $table)
+		Schema::create('articles', function(Blueprint $table)
 		{
-			$table->string('tag')->nullable();
+			$table->increments('id');
+			$table->string('title');
+			$table->text('body');
+			$table->timestamps();
 		});
 	}
 
@@ -25,10 +29,7 @@ class AddTagToArticlesTables extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('articles', function(Blueprint $table)
-		{
-			$table->dropColumn('tag');
-		});
+		Schema::drop('articles');
 	}
 
 }

@@ -23,6 +23,8 @@
     <!-- Custom Fonts -->
     <link href="{{ asset('font-awesome-4.1.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet"/>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -52,7 +54,7 @@
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <li>
@@ -103,7 +105,7 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-tasks">
                     <li>
@@ -113,8 +115,10 @@
                                     <strong>Task 1</strong>
                                     <span class="pull-right text-muted">40% Complete</span>
                                 </p>
+
                                 <div class="progress progress-striped active">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%">
                                         <span class="sr-only">40% Complete (success)</span>
                                     </div>
                                 </div>
@@ -129,8 +133,10 @@
                                     <strong>Task 2</strong>
                                     <span class="pull-right text-muted">20% Complete</span>
                                 </p>
+
                                 <div class="progress progress-striped active">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 20%">
                                         <span class="sr-only">20% Complete</span>
                                     </div>
                                 </div>
@@ -145,8 +151,10 @@
                                     <strong>Task 3</strong>
                                     <span class="pull-right text-muted">60% Complete</span>
                                 </p>
+
                                 <div class="progress progress-striped active">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                         <span class="sr-only">60% Complete (warning)</span>
                                     </div>
                                 </div>
@@ -161,8 +169,10 @@
                                     <strong>Task 4</strong>
                                     <span class="pull-right text-muted">80% Complete</span>
                                 </p>
+
                                 <div class="progress progress-striped active">
-                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                                         <span class="sr-only">80% Complete (danger)</span>
                                     </div>
                                 </div>
@@ -182,7 +192,7 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
@@ -242,7 +252,7 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -274,25 +284,46 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="{{ url('/admin') }}"><i class="fa fa-edit fa-fw"></i> 編輯</a>
+                        <a href="{{ url('/admin') }}"><i class="fa fa-coffee fa-fw"></i> Admin</a>
                     </li>
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 12<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="flot.html">Flot Charts</a>
+                                <a href="{{ url('hello') }}"> hello</a>
                             </li>
                             <li>
-                                <a href="morris.html">Morris.js Charts</a>
+                                <a href="{{ url('hellofaq') }}"> hellofaq</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('api/pages') }}"> /api/pages</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('mypages') }}"> mypages</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('mypages/1') }}"> mypages/1</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 13<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ url('mypages/create') }}"> /mypages/create</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('mypages') }}"> mypages</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="{{ url ('/mypages') }}"><i class="fa fa-dashboard fa-fw"></i> MyPages</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('articles') }}"><i class="fa fa-table fa-fw"></i> Article</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
@@ -316,7 +347,8 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span
+                                    class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>
@@ -364,6 +396,7 @@
         <!-- /.navbar-static-side -->
     </nav>
 
+
     <!-- Page Content -->
     <div id="page-wrapper">
         @yield('content')
@@ -373,9 +406,6 @@
 
 </div>
 <!-- /#wrapper -->
-<script>
-    $('#flash-overlay-modal').modal();
-</script>
 
 <!-- jQuery Version 1.11.0 -->
 <script src="{{ asset('js/jquery-1.11.0.js') }}"></script>
@@ -389,6 +419,14 @@
 <!-- Custom Theme JavaScript -->
 <script src="{{ asset('js/sb-admin-2.js') }}"></script>
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+<!-- This is only necessary if you do Flash::overlay('...') -->
+<script>
+    $('#flash-overlay-modal').modal();
+</script>
+
+@yield('footer')
 </body>
 
 </html>

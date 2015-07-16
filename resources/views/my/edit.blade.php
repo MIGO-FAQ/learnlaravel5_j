@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h1>Create Page</h1>
+        <h1>Edit Page</h1>
         <hr/>
 
-        {!! Form::open(['url' => 'mypages']) !!}
+        {!! Form::model($page, ['route' => ['mypages.update', $page->id], 'method' => 'patch']) !!}
 
         @include ('my.form')
 

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form method="post" action="test.html">
+        <input type="email" name="subscribe_email" placeholder="請輸入您的帳號(電子信箱)" value="iris@iris.com"/>
+        <button onclick="submit">登入</button>
+    </form>
+</body>
+    <!-- MIGO Analytics -->
+    <script language="javascript">
+        function preTrack_fun() {
+            if (typeof (myTracker) != "undefined") {
+                var ac = document.getElementsByName("subscribe_email")[0].value;
+                alert(ac);
+                if (ac != "") myTracker.setAccount("iris@iris.com");
+                //myTracker.setAccount("");
+            }
+            //else
+            //    alert('err');
+        }
+
+        var _wmxq = _wmxq || [];
+        _wmxq.push(["_getTracker", "phase3", "june", "best13t.migosoft.com"]);
+        _wmxq.push(["preTrack", "preTrack_fun"]);
+        _wmxq.push(["afterTrack", ""]);
+        _wmxq.push(["trackPageview"]);
+        (function () {
+            var sc = document.createElement("script"); sc.type = "text/javascript"; sc.async = true;
+            sc.src = ("https:" == document.location.protocol ? "https:" : "http:") + "//tt2.ecrm.com.tw/web_service/TrackingJS/wmxtracker.js";
+            var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(sc, s);
+        })();
+
+//        alert(document.getElementsByName("subscribe_email")[0].value);
+
+    </script>
+</html>

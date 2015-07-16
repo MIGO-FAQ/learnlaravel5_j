@@ -3,10 +3,12 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateMyPagesRequest;
+use Input;
 use Request;
 
 
 use App\Page;
+use App\Tag;
 
 class HelloController extends Controller
 {
@@ -17,7 +19,7 @@ class HelloController extends Controller
     }
     public function hello_faq()
     {
-        //return 'Hello World';
+         //return 'Hello World';
         $lists = [
             'Anne', 'Eunice', 'Nina', 'Zoey', 'James'
         ];
@@ -46,12 +48,13 @@ class HelloController extends Controller
 
         //dd($page);
         //return $page;
-        return view('my.show2',compact('page'));
+        return view('my.show',compact('page'));
         //return view('pages.show')->withPage(Page::find($id));
     }
     public function create()
     {
-        return view('my.create');
+        $tags =  Tag::lists('name', 'id');
+        return view('my.create', compact('tags'));
     }
 
 
@@ -61,11 +64,30 @@ class HelloController extends Controller
      */
     public function store(CreateMyPagesRequest $request)
     {
-        $input = $request->all();
-        //$input = Request::get('title');
-
-        Page::create($input);
+        $page = Page::create($request->all());
+        $page->tags()->sync($request->input('tag_list'));
         return redirect('mypages');
+
+    }
+
+    public function edit($id)
+    {
+        $tags = Tag::lists('name', 'id');
+        $page = Page::findOrFail($id);
+        //dd($page->tag_list->all());
+        return view('my.edit', compact('page', 'tags'));
+
+    }
+
+    public function update(CreateMyPagesRequest $request, $id)
+    {
+        $page = Page::findOrFail($id);
+        $page->title = Input::get('title');
+        $page->body = Input::get('body');
+        $page->user_id = Input::get('user_id');
+        $page->save();
+        $page->tags()->sync($request->input('tag_list'));
+        return redirect('mypages/' . $id);
 
     }
 }

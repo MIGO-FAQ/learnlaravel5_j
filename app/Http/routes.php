@@ -14,31 +14,47 @@
 /*Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');*/
 
-Route::get('/','HomeController@index');
+Route::get('/', 'HomeController@index');
+
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
+
+
 Route::get('pages/{id}', 'PagesController@show');
-/*Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);*/
-
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
-{
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'AdminHomeController@index');
     //Route::resource('/','AdminHomeController');
     Route::resource('pages', 'PagesController');
 });
 
-Route::get('hello','HelloController@hello');
-Route::get('hellofaq','HelloController@hello_faq');
-Route::group(['prefix' => 'api'],function()
-{
-    Route::get('pages','ApiController@index');
+//12
+Route::get('hello', 'HelloController@hello');
+Route::get('hellofaq', 'HelloController@hello_faq');
+Route::group(['prefix' => 'api'], function () {
+    Route::get('pages', 'ApiController@index');
 });
-Route::get('mypages','HelloController@index');
-Route::get('mypages/create','HelloController@create');
-Route::post('mypages','HelloController@store');
-Route::get('mypages/{id}','HelloController@show');
+Route::resource('mypages', 'HelloController');
+
+
+Route::resource('articles', 'ArticleController');
+Route::get('articles/{id}/delete', [
+    'as' => 'articles.delete',
+    'uses' => 'ArticleController@destroy',
+]);
+
+Route::resource('api/articles', 'API\ArticleAPIController');
+
+/*
+|--------------------------------------------------------------------------
+| API routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'api', 'namespace' => '$NAMESPACE_API_CONTROLLER$'], function () {
+    Route::group(['prefix' => 'v1'], function () {
+        include_once Config::get('generator.path_api_routes');
+    });
+});
